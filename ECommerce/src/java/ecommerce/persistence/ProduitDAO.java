@@ -6,7 +6,7 @@ import java.util.List;
  * Persistence manager class for entity "Produit".
  * @author ALBODOR
  */
-public class ProduitDAO implements DAO {
+public class ProduitDAO extends DAO {
 
     @Override
     public void create(Object o) {
