@@ -8,7 +8,14 @@ import java.util.List;
  */
 public abstract class DAO {
     
-    private Connection connection;
+    protected Connection connection;
+
+    /**
+     * Connection to Database.
+     */
+    public DAO() {
+        connection = ConnexionBDD.getInstance();
+    }
 
     /**
      * Add a new item to a Database table.
