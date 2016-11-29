@@ -18,12 +18,22 @@ public class MainApp {
         
         // Creating a new Categorie object
         Categorie cat = new Categorie();
-        cat.setNom("Ordinateurs Bureau");
-        cat.setDescription("Description");
+        cat.setNom("Magazines");
+        cat.setDescription("Hebdo, Quotidiennes, Mensuelles");
         
         // Persisting the new Categorie
-        CategorieDAO categorieDAO = new CategorieDAO();
-        categorieDAO.create(cat);
+//        CategorieDAO categorieDAO = new CategorieDAO();
+//        System.out.println("Creating...");
+//        categorieDAO.create(cat);
+        
+        // Modifyin the new Categorie
+//        System.out.println("Modifying...");
+//        cat.setDescription("NewDescription");
+//        categorieDAO.modify(cat);
+
+        // Deleting the new Categorie
+//        System.out.println("Deleting...");
+//        categorieDAO.delete(cat);
     }
     
     

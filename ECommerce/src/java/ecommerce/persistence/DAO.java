@@ -20,6 +20,7 @@ public abstract class DAO {
     /**
      * Add a new item to a Database table.
      * @param o Item to be added.
+     * @return Database ID of the added item.
      */
     public abstract void create(Object o) ;
     

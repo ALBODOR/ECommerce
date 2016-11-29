@@ -41,6 +41,10 @@ public class Categorie {
     public void setNom(String nom) {
         this.nom = nom;
     }
+    
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public void setDescription(String description) {
         this.description = description;
