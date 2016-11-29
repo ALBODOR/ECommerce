@@ -16,6 +16,12 @@ public class Categorie {
     public Categorie() {
     }
 
+    public Categorie(long id, String nom, String description) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+    }
+
     public Categorie(String name, String description, List<Produit> products) {
         this.nom = name;
         this.description = description;

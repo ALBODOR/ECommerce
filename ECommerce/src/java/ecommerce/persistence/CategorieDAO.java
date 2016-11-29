@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -76,12 +77,47 @@ public class CategorieDAO extends DAO {
 
     @Override
     public Object find(Object id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print(getClass().getSimpleName()+".find() : ");
+        ResultSet results;
+        String query = 
+                " SELECT * FROM "+TABLENAME
+                +" WHERE id"+TABLENAME+"='"+id+"';";
+        PreparedStatement ps;
+        try {
+            ps = connection.clientPrepareStatement(query);
+            results = ps.executeQuery();
+            while(results.next()) {
+                return new Categorie(results.getLong(1), results.getString(2), results.getString(3));
+            }
+            System.out.println("Successful!");
+        } catch(SQLException e){
+            System.out.println("Failure!");
+            System.err.println(e);
+        }
+        return null;
     }
 
     @Override
     public List findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.print(getClass().getSimpleName()+".find() : ");
+        List<Categorie> categories = new ArrayList<>();
+        ResultSet results;
+        String query = 
+                " SELECT * FROM "+TABLENAME+" ;";
+        PreparedStatement ps;
+        try {
+            ps = connection.clientPrepareStatement(query);
+            results = ps.executeQuery();
+            while(results.next()) {
+                categories.add(new Categorie(results.getLong(1), results.getString(2), results.getString(3)));
+            }
+            System.out.println("Successful!");
+            return categories;
+        } catch(SQLException e){
+            System.out.println("Failure!");
+            System.err.println(e);
+        }
+        return null;
     }
 
 }

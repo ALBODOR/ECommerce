@@ -4,6 +4,7 @@ import com.mysql.jdbc.Connection;
 import ecommerce.metier.Categorie;
 import ecommerce.persistence.CategorieDAO;
 import ecommerce.persistence.ConnexionBDD;
+import java.util.List;
 
 /**
  * Application Main Class
@@ -22,10 +23,9 @@ public class MainApp {
         cat.setDescription("Hebdo, Quotidiennes, Mensuelles");
         
         // Persisting the new Categorie
-//        CategorieDAO categorieDAO = new CategorieDAO();
+        CategorieDAO categorieDAO = new CategorieDAO();
 //        System.out.println("Creating...");
 //        categorieDAO.create(cat);
-        
         // Modifyin the new Categorie
 //        System.out.println("Modifying...");
 //        cat.setDescription("NewDescription");
@@ -34,6 +34,15 @@ public class MainApp {
         // Deleting the new Categorie
 //        System.out.println("Deleting...");
 //        categorieDAO.delete(cat);
+
+        // Finding a Category
+//        Categorie foundItem = (Categorie) categorieDAO.find(1);
+//        System.out.println(foundItem);
+        
+        // Finding all Categories
+//        List<Categorie> allCats = categorieDAO.findAll();
+//        System.out.println(allCats.toString());
+        
     }
     
     
