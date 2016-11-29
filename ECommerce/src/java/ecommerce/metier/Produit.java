@@ -17,7 +17,19 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(String nom, String description, float prix, int quantite, Categorie categorie) {
+    public Produit(long id, String nom, String description, float prix, int quantite, 
+                                                            Categorie categorie) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.categorie = categorie;
+    }
+    
+
+    public Produit(String nom, String description, float prix, int quantite, 
+                                                            Categorie categorie) {
         this.nom = nom;
         this.description = description;
         this.prix = prix;
@@ -49,6 +61,10 @@ public class Produit {
         return categorie;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -73,5 +89,5 @@ public class Produit {
     public String toString() {
         return "Produit{" + "nom=" + nom + ", description=" + description + '}';
     }
-    
+
 }

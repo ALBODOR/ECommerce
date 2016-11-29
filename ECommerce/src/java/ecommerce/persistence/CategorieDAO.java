@@ -16,6 +16,10 @@ public class CategorieDAO extends DAO {
     
     private static final String TABLENAME = "Categorie";
 
+    public CategorieDAO() {
+        super();
+    }
+
     @Override
     public void create(Object o) {
         System.out.print(getClass().getSimpleName()+".create() : ");

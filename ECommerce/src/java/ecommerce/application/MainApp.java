@@ -4,6 +4,7 @@ import com.mysql.jdbc.Connection;
 import ecommerce.metier.Categorie;
 import ecommerce.persistence.CategorieDAO;
 import ecommerce.persistence.ConnexionBDD;
+import ecommerce.persistence.ProduitDAO;
 import java.util.List;
 
 /**
@@ -16,6 +17,12 @@ public class MainApp {
         
         // Testing DB Connection
         Connection connection = ConnexionBDD.getInstance();
+        
+        //####################################################################//
+        //                                                                    //
+        //                 TEST UNITAIRES POUR "CATEGORIE"                    //
+        //                                                                    //
+        //####################################################################//
         
         // Creating a new Categorie object
         Categorie cat = new Categorie();
@@ -42,6 +49,17 @@ public class MainApp {
         // Finding all Categories
 //        List<Categorie> allCats = categorieDAO.findAll();
 //        System.out.println(allCats.toString());
+
+
+        //####################################################################//
+        //                                                                    //
+        //                  TEST UNITAIRES POUR "PRODUIT"                     //
+        //                                                                    //
+        //####################################################################//
+        
+        // Finding all Produits
+        ProduitDAO produitDAO = new ProduitDAO();
+        System.out.println(produitDAO.findAll().toString());
         
     }
     
