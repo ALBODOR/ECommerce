@@ -1,8 +1,16 @@
+<%@page import="ecommerce.metier.Categorie"%>
+<%@page import="java.util.List"%>
+<%
+
+    List<Categorie> categories = (List<Categorie>) 
+                                        request.getAttribute("allCategories");   
+
+%>
 <!DOCTYPE html>
-    <html>
+<html>
     <head>
-        <meta charset="utf-8" />
-        <title>Liste des Cat√©gories</title>
+        <meta charset="UTF-8" />
+        <title>Liste des CatÈgories</title>
     </head>
     <body>
         <h1>Catalogue des Cat√©gories :</h1>
@@ -10,50 +18,32 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Id_Cat√©gorie</th>
+                        <th>Id_CatÈgorie</th>
                         <th>Nom</th>
                         <th>Description</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                                <td>Projet</td>
-                                <td>PFA</td>
-                                <td>Ali</td>
-                                <td>
-                                        <button type="button" >Modifier</button>
-                                        <button type="button" >Supprimer</button>
-                                </td>
-                        </tr>
-                        <tr>
-                            <td>Projet</td>
-                            <td>PFA</td>
-                            <td>Ali</td>
-                            <td>
-                                <button type="button" >Modifier</button>
-                                <button type="button" >Supprimer</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Projet</td>
-                            <td>PFA</td>
-                            <td>Ali</td>
-                            <td>
-                                <button type="button" >Modifier</button>
-                                <button type="button" >Supprimer</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Projet</td>
-                            <td>PFA</td>
-                            <td>Ali</td>
-                            <td>
-                                <button type="button">Modifier</button>
-                                <button type="button">Supprimer</button>
-                            </td>
-                        </tr>
-
+                    <% for (Categorie cat : categories) { %>
+                    <tr>
+                        <td><%= cat.getId() %></td>
+                        <td><%= cat.getNom()%></td>
+                        <td><%= cat.getDescription()%></td>
+                        <td>
+                            <form method="POST" action="listeCategorie" >
+                                <input type="hidden" name="operation" value="modifier" />
+                                <input type="hidden" name="id" value="<%=cat.getId() %>" />
+                                <input type="submit" value="Modifier" />
+                            </form>
+                            <form method="POST" action="listeCategorie" >
+                                <input type="hidden" name="operation" value="supprimer" />
+                                <input type="hidden" name="id" value="<%=cat.getId() %>" />
+                                <input type="submit" value="Supprimer" />
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
                 </tbody>
                 <tfoot>  
                     <tr>
@@ -62,7 +52,7 @@
                         </th>
                     </tr>
                 </tfoot>
-           </table>
-	</form>
+            </table>
+        </form>
     </body>
 </html>

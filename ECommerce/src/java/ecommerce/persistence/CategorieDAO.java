@@ -21,7 +21,7 @@ public class CategorieDAO extends DAO {
     }
 
     @Override
-    public void create(Object o) {
+    public void create(Object o) throws Exception {
         System.out.print(getClass().getSimpleName()+".create() : ");
         Categorie cat = (Categorie) o;
         ResultSet result;
@@ -38,12 +38,12 @@ public class CategorieDAO extends DAO {
             System.out.println("Generated Key ==> "+cat.getId());
         } catch(SQLException e){
             System.out.println("Failure!");
-            System.err.println(e);
+            throw new SQLException();
         }
     }
 
     @Override
-    public void modify(Object o) {     
+    public void modify(Object o) throws Exception {     
         System.out.print(getClass().getSimpleName()+".modify() : ");
         Categorie cat = (Categorie) o;
         String query = 
@@ -57,12 +57,12 @@ public class CategorieDAO extends DAO {
             System.out.println("Successful!");
         } catch(SQLException e){
             System.out.println("Failure!");
-            System.err.println(e);
+            throw new SQLException();
         }
     }
 
     @Override
-    public void delete(Object o) {    
+    public void delete(Object o) throws Exception{    
         System.out.print(getClass().getSimpleName()+".delete() : ");
         Categorie cat = (Categorie) o;
         String query = 
@@ -75,12 +75,12 @@ public class CategorieDAO extends DAO {
             System.out.println("Successful!");
         } catch(SQLException e){
             System.out.println("Failure!");
-            System.err.println(e);
+            throw new SQLException();
         }        
     }
 
     @Override
-    public Object find(Object id) {
+    public Object find(Object id) throws Exception {
         System.out.print(getClass().getSimpleName()+".find() : ");
         ResultSet results;
         String query = 
@@ -96,13 +96,13 @@ public class CategorieDAO extends DAO {
             System.out.println("Successful!");
         } catch(SQLException e){
             System.out.println("Failure!");
-            System.err.println(e);
+            throw new SQLException();
         }
         return null;
     }
 
     @Override
-    public List findAll() {
+    public List findAll() throws Exception {
         System.out.print(getClass().getSimpleName()+".find() : ");
         List<Categorie> categories = new ArrayList<>();
         ResultSet results;
@@ -119,9 +119,8 @@ public class CategorieDAO extends DAO {
             return categories;
         } catch(SQLException e){
             System.out.println("Failure!");
-            System.err.println(e);
+            throw new SQLException();
         }
-        return null;
     }
 
 }
